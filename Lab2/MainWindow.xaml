@@ -1,0 +1,27 @@
+﻿<Window x:Class="Lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab2"
+        mc:Ignorable="d"
+        Title="Автоматический парсер" Height="900" Width="1600"
+        Loaded="Window_Loaded"
+        Background="#FF1C6B72" FontSize="14" FontFamily="Times New Roman">
+    <Grid UseLayoutRounding="False">
+        <DataGrid x:Name="dataGrid" Height="450" Margin="16,16,16,0" VerticalAlignment="Top" IsReadOnly="True" AutoGenerateColumns="False" SelectedCellsChanged="DataGrid_SelectedCellsChanged"/>
+        <Button Content="Обновить" HorizontalAlignment="Left" Margin="16,0,0,16" VerticalAlignment="Bottom" Width="160" Height="80" Click="UpdateButton_Click" x:Name="updateButton"/>
+        <Button Content="Сохранить как..." HorizontalAlignment="Right" Margin="0,0,16,16" Width="160" x:Name="saveAsFileButton" Height="80" VerticalAlignment="Bottom" Click="SaveAsFileButton_Click"/>
+        <Label x:Name="beforeLabel" Content="БЫЛО" HorizontalAlignment="Left" Margin="192,482,0,0" VerticalAlignment="Top" IsEnabled="False" Visibility="Hidden"/>
+        <Label x:Name="afterLabel" Content="СТАЛО" HorizontalAlignment="Left" Margin="532,482,0,0" VerticalAlignment="Top" IsEnabled="False" Visibility="Hidden"/>
+        <ListBox x:Name="beforeListBox" HorizontalAlignment="Left" Height="321" Margin="192,0,0,16" VerticalAlignment="Bottom" Width="321" IsEnabled="False" Visibility="Hidden"/>
+        <ListBox x:Name="afterListBox" HorizontalAlignment="Left" Height="321" Margin="532,0,0,16" VerticalAlignment="Bottom" Width="321" IsEnabled="False" Visibility="Hidden"/>
+        <Label x:Name="countDifferenceLabel" Content="Количество изменений:" HorizontalAlignment="Left" Margin="671,466,0,0" VerticalAlignment="Top" IsEnabled="False" Visibility="Hidden"/>
+        <Label x:Name="countNewLabel" Content="Количество новых:" HorizontalAlignment="Left" Margin="671,500,0,0" VerticalAlignment="Top" IsEnabled="False" Visibility="Hidden"/>
+        <Button x:Name="leftPageButton" Content="&lt;" HorizontalAlignment="Left" Margin="16,482,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="LeftPageButton_Click"/>
+        <Button x:Name="rightPageButton" Content="&gt;" HorizontalAlignment="Left" Margin="144,482,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="RightPageButton_Click"/>
+        <Slider x:Name="countSlider" HorizontalAlignment="Left" Margin="16,530,0,0" VerticalAlignment="Top" Height="32" Width="160" SmallChange="1" Maximum="85" ValueChanged="CountSlider_ValueChanged" LargeChange="10"/>
+        <Label x:Name="pageLabel" Content="1" HorizontalAlignment="Left" Margin="88,482,0,0" VerticalAlignment="Top" Height="32" Width="32"/>
+        <Label x:Name="countLabel" Content="Количество записей: 15" HorizontalAlignment="Left" Margin="16,567,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
