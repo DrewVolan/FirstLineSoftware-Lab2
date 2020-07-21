@@ -23,5 +23,21 @@
         <Slider x:Name="countSlider" HorizontalAlignment="Left" Margin="16,530,0,0" VerticalAlignment="Top" Height="32" Width="160" SmallChange="1" Maximum="85" ValueChanged="CountSlider_ValueChanged" LargeChange="10"/>
         <Label x:Name="pageLabel" Content="1" HorizontalAlignment="Left" Margin="88,482,0,0" VerticalAlignment="Top" Height="32" Width="32"/>
         <Label x:Name="countLabel" Content="Количество записей: 15" HorizontalAlignment="Left" Margin="16,567,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="idTextBox" HorizontalAlignment="Right" Height="23" Margin="0,493,481,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Right" Height="62" Margin="0,533,301,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" IsReadOnly="True"/>
+        <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Right" Height="62" Margin="0,613,301,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" IsReadOnly="True"/>
+        <TextBox x:Name="sourceTextBox" HorizontalAlignment="Right" Height="62" Margin="0,693,301,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" IsReadOnly="True"/>
+        <TextBox x:Name="objectTextBox" HorizontalAlignment="Right" Height="62" Margin="0,773,301,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" IsReadOnly="True"/>
+        <TextBox x:Name="privacyTextBox" Height="23" Margin="0,533,56,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="integrityTextBox" HorizontalAlignment="Right" Height="23" Margin="0,613,56,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="availabilityTextBox" HorizontalAlignment="Right" Height="23" Margin="0,693,56,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="ID:" HorizontalAlignment="Right" Margin="0,493,606,0" VerticalAlignment="Top"/>
+        <Label Content="Наименование:" HorizontalAlignment="Right" Margin="0,533,606,0" VerticalAlignment="Top"/>
+        <Label Content="Описание:" HorizontalAlignment="Right" Margin="0,613,606,0" VerticalAlignment="Top"/>
+        <Label Content="Источник:" HorizontalAlignment="Right" Margin="0,693,607,0" VerticalAlignment="Top"/>
+        <Label Content="Объект воздействия:" HorizontalAlignment="Right" Margin="0,773,601,0" VerticalAlignment="Top"/>
+        <Label Content="Нарушение конфиденциальности" HorizontalAlignment="Right" Margin="0,507,16,0" VerticalAlignment="Top"/>
+        <Label Content="Нарушение целостности" HorizontalAlignment="Right" Margin="0,587,38,0" VerticalAlignment="Top"/>
+        <Label Content="Нарушение доступности" HorizontalAlignment="Right" Margin="0,667,38,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

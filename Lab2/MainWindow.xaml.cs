@@ -5,7 +5,6 @@ using System.Data.Linq;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,7 +34,7 @@ namespace Lab2
         /// Путь к локальной базе данных.
         /// </summary>
         public readonly string path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Волейко_Lab2\thrlist.xlsx";
-        public readonly string pathTxt = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Волейко_Lab2\localDB.txt";
+        public readonly string pathTxt = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Волейко_Lab2\README.txt";
         /// <summary>
         /// Страница DataGrid.
         /// </summary>
@@ -66,37 +65,7 @@ namespace Lab2
                             WebClient webClient = new WebClient();
                             webClient.DownloadFile(@"https://bdu.fstec.ru/files/documents/thrlist.xlsx", path);
                             MessageBox.Show("На рабочем столе была создана папка 'Волейко_Lab2'!", "Обратите внимание!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                            /*Microsoft.Office.Interop.Excel.Application xlsApplication = new Microsoft.Office.Interop.Excel.Application();
-                            Workbook xlsWorkbook = xlsApplication.Workbooks.Open(path);
-                            Worksheet xlsWorksheet = xlsWorkbook.Worksheets["Sheet"];
-                            Range xlsRange = xlsWorksheet.UsedRange;
-                            for (int i = 3; i <= xlsRange.Rows.Count; i++)
-                            {
-                                if (xlsRange.Cells[i, 1].Text != "")
-                                {
-                                    threats.Add(new Threat(xlsRange.Cells[i, 1].Text,
-                                        xlsRange.Cells[i, 2].Text,
-                                        xlsRange.Cells[i, 3].Text,
-                                        xlsRange.Cells[i, 4].Text,
-                                        xlsRange.Cells[i, 5].Text,
-                                        xlsRange.Cells[i, 6].Text,
-                                        xlsRange.Cells[i, 7].Text,
-                                        xlsRange.Cells[i, 8].Text));
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                            }
-                            xlsWorkbook.Close();
-                            xlsApplication.Quit();
-                            string localDataBase = "";
-                            foreach (var threat in threats)
-                            {
-                                localDataBase += threat.ToString() + "@";
-                            }
-                            File.WriteAllText(pathTxt, localDataBase);
-                            File.Delete(path);*/
+                            File.WriteAllText(pathTxt, "Лабораторная работа №2. Волейко Андрей Владимирович. vandrewv16@gmail.com\n\nДанная программа выполняет все требуемые функции.В качестве локальной базы используется скачиваемый Excel файл.Если во время работы приложения информация в локальной БД изменится, то, по нажатию кнопки обновить, выдаст все изменения в таблице БЫЛО / СТАЛО, выведет, проведено ли успешно обновление, или вышла ошибка.В главной таблице показаны все записи в кратком формате, но по нажатию на одну из записей, появится вся подробная информация в правой нижней части приложения.По нажатию кнопки 'Сохранить как' можно скачать.txt - файл данной БД.Таблица выдаёт информацию постранично, причём количество записей на странице можно регулировать слайдером.");
                         }
                     }
                     downloadedStatus = true;
@@ -137,24 +106,6 @@ namespace Lab2
             }
             xlsWorkbook.Close();
             xlsApplication.Quit();
-            /*threats.Clear();
-            using (StreamReader streamReader = new StreamReader(pathTxt))
-            {
-                string line = streamReader.ReadToEnd();
-                for (int i = 0; i < line.Split('@').Length - 1; i++)
-                {
-                    string temp = line.Split('@')[i];
-                    threats.Add(new Threat(temp.Split('♪')[0],
-                       temp.Split('♪')[1],
-                       temp.Split('♪')[2],
-                       temp.Split('♪')[3],
-                       temp.Split('♪')[4],
-                       temp.Split('♪')[5],
-                       temp.Split('♪')[6],
-                       temp.Split('♪')[7]));
-                }
-                streamReader.Close();
-            }*/
             dataGrid.Columns.Add(new DataGridTextColumn
             {
                 Header = "Идентификатор угрозы",
@@ -183,76 +134,8 @@ namespace Lab2
                             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\Волейко_Lab2");
                             WebClient webClient = new WebClient();
                             webClient.DownloadFile(@"https://bdu.fstec.ru/files/documents/thrlist.xlsx", path);
-                            /*MessageBox.Show("На рабочем столе была создана папка 'Волейко_Lab2'!", "Обратите внимание!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                            Microsoft.Office.Interop.Excel.Application xlsApplication = new Microsoft.Office.Interop.Excel.Application();
-                            Workbook xlsWorkbook = xlsApplication.Workbooks.Open(path);
-                            Worksheet xlsWorksheet = xlsWorkbook.Worksheets["Sheet"];
-                            Range xlsRange = xlsWorksheet.UsedRange;
-                            for (int i = 3; i <= xlsRange.Rows.Count; i++)
-                            {
-                                if (xlsRange.Cells[i, 1].Text != "")
-                                {
-                                    threats.Add(new Threat(xlsRange.Cells[i, 1].Text,
-                                        xlsRange.Cells[i, 2].Text,
-                                        xlsRange.Cells[i, 3].Text,
-                                        xlsRange.Cells[i, 4].Text,
-                                        xlsRange.Cells[i, 5].Text,
-                                        xlsRange.Cells[i, 6].Text,
-                                        xlsRange.Cells[i, 7].Text,
-                                        xlsRange.Cells[i, 8].Text));
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                            }
-                            xlsWorkbook.Close();
-                            xlsApplication.Quit();
-                            string localDataBase = "";
-                            foreach (var threat in threats)
-                            {
-                                localDataBase += threat.ToString() + "@";
-                            }
-                            File.WriteAllText(pathTxt, localDataBase);
-                            File.Delete(path);*/
                         }
                     }
-                    /*else
-                    {
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFile(@"https://bdu.fstec.ru/files/documents/thrlist.xlsx", path);
-                        Microsoft.Office.Interop.Excel.Application xlsApplication = new Microsoft.Office.Interop.Excel.Application();
-                        Workbook xlsWorkbook = xlsApplication.Workbooks.Open(path);
-                        Worksheet xlsWorksheet = xlsWorkbook.Worksheets["Sheet"];
-                        Range xlsRange = xlsWorksheet.UsedRange;
-                        for (int i = 3; i <= xlsRange.Rows.Count; i++)
-                        {
-                            if (xlsRange.Cells[i, 1].Text != "")
-                            {
-                                threats.Add(new Threat(xlsRange.Cells[i, 1].Text,
-                                    xlsRange.Cells[i, 2].Text,
-                                    xlsRange.Cells[i, 3].Text,
-                                    xlsRange.Cells[i, 4].Text,
-                                    xlsRange.Cells[i, 5].Text,
-                                    xlsRange.Cells[i, 6].Text,
-                                    xlsRange.Cells[i, 7].Text,
-                                    xlsRange.Cells[i, 8].Text));
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                        xlsWorkbook.Close();
-                        xlsApplication.Quit();
-                        string localDataBase = "";
-                        foreach (var threat in threats)
-                        {
-                            localDataBase += threat.ToString() + "@";
-                        }
-                        File.WriteAllText(pathTxt, localDataBase);
-                        File.Delete(path);
-                    }*/
                     downloadedStatus = true;
                 }
                 catch (Exception ex)
@@ -266,41 +149,10 @@ namespace Lab2
             Range xlsRange = xlsWorksheet.UsedRange;
             try
             {
-                uint countNewThreats = 0;
-                /*using (StreamReader streamReader = new StreamReader(pathTxt))
-                {
-                    string line = streamReader.ReadToEnd();*/
                 for (int i = 0; i < threats.Count; i++)
                 {
                     if (xlsRange.Cells[i + 3, 1].Text != "")
                     {
-                        /*byte privacy;
-                        byte integrity;
-                        byte availability;
-                        if (threats[i].Privacy)
-                        {
-                            privacy = 1;
-                        }
-                        else
-                        {
-                            privacy = 0;
-                        }
-                        if (threats[i].Integrity)
-                        {
-                            integrity = 1;
-                        }
-                        else
-                        {
-                            integrity = 0;
-                        }
-                        if (threats[i].Availability)
-                        {
-                            availability = 1;
-                        }
-                        else
-                        {
-                            availability = 0;
-                        }*/
                         string privacy;
                         string integrity;
                         string availability;
@@ -352,71 +204,20 @@ namespace Lab2
                     {
                         break;
                     }
-                    /*string privacy;
-                    string integrity;
-                    string availability;
-                    if (threats[i].Privacy)
-                    {
-                        privacy = "True";
-                    }
-                    else
-                    {
-                        privacy = "False";
-                    }
-                    if (threats[i].Integrity)
-                    {
-                        integrity = "True";
-                    }
-                    else
-                    {
-                        integrity = "False";
-                    }
-                    if (threats[i].Availability)
-                    {
-                        availability = "True";
-                    }
-                    else
-                    {
-                        availability = "False";
-                    }
-                    string temp = line.Split('@')[i];
-                    if (threats[i].ID.ToString() != temp.Split('♪')[0] ||
-                            threats[i].Name.ToString() != temp.Split('♪')[1] ||
-                            threats[i].Description.ToString() != temp.Split('♪')[2] ||
-                            threats[i].Source.ToString() != temp.Split('♪')[3] ||
-                            threats[i].ImpactObject.ToString() != temp.Split('♪')[4] ||
-                            privacy.ToString() != temp.Split('♪')[5] ||
-                            integrity.ToString() != temp.Split('♪')[6] ||
-                            availability.ToString() != temp.Split('♪')[7])
-                    {
-                        threats.RemoveAt(i);
-                        threats.Insert(i, new Threat(temp.Split('♪')[0],
-                   temp.Split('♪')[1],
-                   temp.Split('♪')[2],
-                   temp.Split('♪')[3],
-                   temp.Split('♪')[4],
-                   temp.Split('♪')[5],
-                   temp.Split('♪')[6],
-                   temp.Split('♪')[7]));
-                    }
                 }
-                streamReader.Close();
-                for (int i = threats.Count; line.Split('@')[i] != ""; i++)
+                uint countNewThreats = 0;
+                for (int i = threats.Count; xlsRange.Cells[i + 3, 1].Text != ""; i++)
                 {
                     countNewThreats++;
-                    string temp = line.Split('@')[i];
-                    threats.Add(new Threat(temp.Split('♪')[0],
-                       temp.Split('♪')[1],
-                       temp.Split('♪')[2],
-                       temp.Split('♪')[3],
-                       temp.Split('♪')[4],
-                       temp.Split('♪')[5],
-                       temp.Split('♪')[6],
-                       temp.Split('♪')[7]));
+                    threats.Add(new Threat(xlsRange.Cells[i + 3, 1].Text,
+                            xlsRange.Cells[i + 3, 2].Text,
+                            xlsRange.Cells[i + 3, 3].Text,
+                            xlsRange.Cells[i + 3, 4].Text,
+                            xlsRange.Cells[i + 3, 5].Text,
+                            xlsRange.Cells[i + 3, 6].Text,
+                            xlsRange.Cells[i + 3, 7].Text,
+                            xlsRange.Cells[i + 3, 8].Text));
                 }
-            }*/
-                }
-
                 var oldDifferences = oldThreats.Except(threats);
                 var newDifferences = threats.Except(oldThreats);
                 MessageBox.Show($"Количество новых угроз: {countNewThreats}.\nОни добавлены в конце.", "Новые угрозы", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -454,6 +255,15 @@ namespace Lab2
             if (dataGrid.SelectedIndex != -1)
             {
                 MessageBox.Show(dataGrid.SelectedItem.ToString());
+                Threat temp = (Threat)dataGrid.SelectedItem;
+                idTextBox.Text = temp.ID;
+                nameTextBox.Text = temp.Name;
+                descriptionTextBox.Text = temp.Description;
+                sourceTextBox.Text = temp.Source;
+                objectTextBox.Text = temp.ImpactObject;
+                privacyTextBox.Text = temp.Privacy.ToString();
+                integrityTextBox.Text = temp.Integrity.ToString();
+                availabilityTextBox.Text = temp.Availability.ToString();
             }
         }
 
@@ -461,7 +271,7 @@ namespace Lab2
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog()
             {
-                Filter = "Text file (*.txt)|*.txt|Excel file (*.xls)|*.xls"
+                Filter = "Text file (*.txt)|*.txt"
             };
             string localDataBase = "";
             foreach (var threat in threats)

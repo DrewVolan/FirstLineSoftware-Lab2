@@ -26,33 +26,6 @@ namespace Lab2
             Description = description;
             Source = source;
             ImpactObject = impactObject;
-            /*if (privacy == 1)
-            {
-                Privacy = true;
-            }
-            else
-            {
-                Privacy = false;
-            }
-            if (integrity == 1)
-            {
-                Integrity = true;
-            }
-            else
-            {
-                Integrity = false;
-            }
-            if (availability == 1)
-            {
-                Availability = true;
-            }
-            else
-            {
-                Availability = false;
-            }*/
-            /*Privacy = privacy;
-            Integrity = integrity;
-            Availability = availability;*/
             if (privacy == "True" || privacy == "1")
             {
                 Privacy = true;
@@ -82,7 +55,6 @@ namespace Lab2
         public override string ToString()
         {
             return $"ID: {ID}\n\nНаименование угрозы: {Name}\n\nОписание угрозы: {Description}\n\nИсточник угрозы: {Source}\n\nОбъект воздействия: {ImpactObject}\n\nНарушение конфиденциальности: {Privacy}\n\nНарушение целостности: {Integrity}\n\nНарушение доступности: {Availability}";
-            //return $"{ID}♪{Name}♪{Description}♪{Source}♪{ImpactObject}♪{Privacy}♪{Integrity}♪{Availability}";
         }
     }
 }
